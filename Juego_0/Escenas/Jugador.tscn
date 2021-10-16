@@ -1,0 +1,215 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Graficos/Sprites/quieto/idle.png" type="Texture" id=1]
+[ext_resource path="res://Personajes/Jugador Principal/Jugador.gd" type="Script" id=2]
+[ext_resource path="res://Graficos/Sprites/saltar/jump.png" type="Texture" id=3]
+[ext_resource path="res://Graficos/Sprites/agachado/crouch.png" type="Texture" id=4]
+[ext_resource path="res://Graficos/Sprites/correr/run.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/State_Machine/corriendo.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/State_Machine/States/quieto.gd" type="Script" id=7]
+[ext_resource path="res://Personajes/Jugador Principal/Jugador_State_Machine.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/State_Machine/States/saltando.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/State_Machine/States/agachado.gd" type="Script" id=10]
+
+[sub_resource type="CapsuleShape2D" id=6]
+height = 9.77362
+
+[sub_resource type="Animation" id=2]
+resource_name = "agachado"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "corriendo"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "saltando"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+
+[node name="Jugador" type="KinematicBody2D"]
+position = Vector2( 42.2646, 23.811 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Position2D"]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Col2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.700596, 2.49847 )
+shape = SubResource( 6 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/agachado = SubResource( 2 )
+anims/corriendo = SubResource( 3 )
+anims/quieto = SubResource( 4 )
+anims/saltando = SubResource( 5 )
+
+[node name="Jugador_State_Machine" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="quieto" type="Node" parent="Jugador_State_Machine"]
+script = ExtResource( 7 )
+
+[node name="corriendo" type="Node" parent="Jugador_State_Machine"]
+script = ExtResource( 6 )
+
+[node name="agachado" type="Node" parent="Jugador_State_Machine"]
+script = ExtResource( 10 )
+
+[node name="saltando" type="Node" parent="Jugador_State_Machine"]
+script = ExtResource( 9 )

@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Graficos/texto/KGRedHands.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Escenas/Interfas.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/principal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graficos/fondo.jpg" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 65
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 39
+font_data = ExtResource( 1 )
+
+[node name="Interfas" type="CanvasLayer"]
+script = ExtResource( 2 )
+scn_game = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -299.0
+margin_right = 514.0
+margin_bottom = 303.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mensaje" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.357
+anchor_right = 0.5
+anchor_bottom = 0.357
+margin_left = -209.0
+margin_top = -69.2
+margin_right = 209.0
+margin_bottom = 69.8
+custom_fonts/font = SubResource( 1 )
+text = "Moonlinght"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="jugar" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = 50.0
+margin_right = 200.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 2 )
+text = "JUGAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="jugar" to="." method="_on_jugar_pressed"]
