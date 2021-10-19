@@ -1,14 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://files/img/background.jpg" type="Texture" id=1]
+[ext_resource path="res://scene/sprite.gd" type="Script" id=2]
+[ext_resource path="res://files/img/PngItem_1407934.png" type="Texture" id=3]
+[ext_resource path="res://files/sfx/spin_crank.ogg" type="AudioStream" id=4]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="GDScript" id=1]
+script/source = "extends AudioStreamPlayer
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+func _ready() -> void:
+ var audioStream: AudioStream = preload(\"res://files/sfx/spin_crank.ogg\")
+ self.set_stream(audioStream)
+ self.set_volume_db(3.0)
+ self.play()
+"
 
-[node name="ParallaxLayer" type="ParallaxBackground" parent="ParallaxBackground"]
+[node name="main" type="Node2D"]
 
-[node name="Fondo" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 0.371192, 0.314731 )
-texture = ExtResource( 1 )
-centered = false
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 379.275, 297.272 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+script = SubResource( 1 )
