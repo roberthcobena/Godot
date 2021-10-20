@@ -1,18 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scene/sprite.gd" type="Script" id=2]
 [ext_resource path="res://files/img/PngItem_1407934.png" type="Texture" id=3]
 [ext_resource path="res://files/sfx/spin_crank.ogg" type="AudioStream" id=4]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends AudioStreamPlayer
-
-func _ready() -> void:
- var audioStream: AudioStream = preload(\"res://files/sfx/spin_crank.ogg\")
- self.set_stream(audioStream)
- self.set_volume_db(3.0)
- self.play()
-"
 
 [node name="main" type="Node2D"]
 
@@ -21,6 +11,9 @@ position = Vector2( 379.275, 297.272 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="sfx" type="Node" parent="."]
+
+[node name="rotar" type="AudioStreamPlayer" parent="sfx" groups=[
+"sfx",
+]]
 stream = ExtResource( 4 )
-script = SubResource( 1 )
