@@ -11,7 +11,7 @@
 [ext_resource path="res://Scripts/State_Machine/States/saltando.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/State_Machine/States/agachado.gd" type="Script" id=10]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=1]
 height = 9.77362
 
 [sub_resource type="Animation" id=2]
@@ -191,7 +191,7 @@ hframes = 4
 
 [node name="Col2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.700596, 2.49847 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/agachado = SubResource( 2 )

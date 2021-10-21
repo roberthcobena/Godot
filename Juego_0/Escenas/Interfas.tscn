@@ -65,4 +65,5 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="jugar" to="." method="_on_jugar_pressed"]
