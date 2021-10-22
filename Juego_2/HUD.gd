@@ -9,8 +9,7 @@ func show_message(text):
 	
 func show_game_over():
 	show_message("Game Over")
-	yield($MessageTimer, "timeout")
-	
+	yield($MessageTimer, "timeout")	
 	$Message.text = "Dodge the \nCreeps!"
 	$Message.show()
 	yield(get_tree().create_timer(1), "timeout")
@@ -19,9 +18,11 @@ func show_game_over():
 func update_score(score):
 	$ScoreLabel.text = str(score)	
 
-func _on_MessageTimer_timeout():
+func _on_StartButton_pressed():
 	$StartButton.hide()
 	emit_signal("start_game")
-
-func _on_StartButton_pressed():
 	$Message.hide()
+	
+func _on_MessageTimer_timeout():
+	$Message.hide()
+
