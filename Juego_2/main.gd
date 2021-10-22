@@ -20,10 +20,10 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()	
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")	
+	$HUD.show_message("Huye!!!")	
 	$Music.play()
 
-func _on_MobTimer_timeout():
+func _on_MobTimer_timeout():	
 	$MobPath/MobSpawnLocation.offset = randi()
 	var mob = Mob.instance()
 	add_child(mob)
