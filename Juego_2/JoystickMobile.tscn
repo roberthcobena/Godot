@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://JoystickMobile.gd" type="Script" id=1]
+[ext_resource path="res://dodge_assets/art/JoystickControl.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 240.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+scale = Vector2( 0.609375, 0.578125 )
+normal = ExtResource( 2 )
+shape = SubResource( 1 )

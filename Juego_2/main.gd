@@ -33,7 +33,7 @@ func _on_MobTimer_timeout():
 	mob.rotation = direction
 	mob.linear_velocity = Vector2(rand_range(mob.min_speed, mob.max_speed), 0)
 	mob.linear_velocity = mob.linear_velocity.rotated(direction)
-	
+	 
 func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
@@ -42,4 +42,6 @@ func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
 
-
+#movimiento en Android - Joystick
+func _on_CanvasLayer_use_move_vector(move_vector):
+	$Player.position()
